@@ -4,7 +4,60 @@
 
  .boton{
     height: 30px;
-    width: 180px;
-    background-color: yellow;
-    border-radius: 5px;
+    width: 150px;
+    background-color: #333c87;
+    color: white;
+    border-radius: 8px;
+    margin-right: 20px;
+    
  }
+
+ .navbar{
+    background-color: #fafbfd;
+ }
+
+.navbar-brand{
+    color: #333c87;
+    margin-left: 20px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.card-body{
+    background-color: #fafbfd;
+    height: 249px;
+    width: 399px;
+}
+
+.card{
+    height: 250px;
+    width: 400px;
+
+    
+}
+
+.btn1{
+    background-color: #333c87;
+    color: white;
+    margin-top: 20px;
+    border-radius: 5px;    
+}
+
+.contenedorformulario{
+    border: black 3px solid;
+    border-radius: 10px;
+    border-color: black;
+    background-color: #f6f6f6;
+    padding: 20px;
+    height: 400px;
+    width: 600px;
+    margin-top: 80px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.form-control{
+    background-color: #fafbfd;
+}
+

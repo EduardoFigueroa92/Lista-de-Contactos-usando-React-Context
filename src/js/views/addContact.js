@@ -24,9 +24,10 @@ const AddContact = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Añadir Nuevo Contacto</h1>
+    <div className="container contenedorformulario">
+      
       <form onSubmit={handleSubmit}>
+      <h1>Añadir Nuevo Contacto</h1>
         <div className="form-group">
           <label htmlFor="name">Nombre:</label>
           <input
@@ -76,7 +77,7 @@ const AddContact = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn1">
           Añadir Contacto
         </button>
 
