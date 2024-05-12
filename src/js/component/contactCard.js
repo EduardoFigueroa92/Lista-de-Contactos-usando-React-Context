@@ -24,11 +24,11 @@ const ContactCard = ({ contact }) => {
         <p className="card-text">Correo electrónico: {contact.email}</p>
         <p className="card-text">Dirección: {contact.address}</p>
         <div className="btn-group" role="group">
-            <button className="btn btn-secondary" onClick={handleUpdate}>
-            Actualizar
+            <button className="btn y" onClick={handleUpdate}>
+            <i className="fas fa-pencil-alt"></i>
             </button>
-            <button className="btn btn-danger" onClick={handleDelete}>
-            Borrar
+            <button className="btn" onClick={handleDelete}>
+            <i className="fas fa-trash-alt"></i>
             </button>            
         </div>
       </div>

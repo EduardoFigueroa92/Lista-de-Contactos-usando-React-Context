@@ -1,8 +1,8 @@
 
 const getState = ({ getStore, getActions, setStore }) => {
-	
+
 	return {
-		store: {			
+		store: {
 			contacts: []
 		},
 		actions: {
@@ -14,43 +14,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(contactsArray);
 					if (Array.isArray(contactsArray)) {
 						setStore({ contacts: contactsArray });
-					  } else {
+					} else {
 						console.error('Data retrieved from API is not an array:', data);
-					  }
+					}
 				} catch (error) {
-				  	console.error('Error fetching contacts:', error);
+					console.error('Error fetching contacts:', error);
 				}
-			  },
-			
-			  updateContact: async (updatedContactData) => {
+			},
+
+			updateContact: async (updatedContactData) => {
 				try {
-				  // Lógica para actualizar el contacto con los datos modificados
-				  const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${updatedContactData.id}`, {
-					method: "PUT",
-					headers: {
-					  "Content-Type": "application/json"
-					},
-					body: JSON.stringify(updatedContactData)
-				  });
-				  console.log("Contacto actualizado:", updatedContactData);
-				  
+					// Lógica para actualizar el contacto con los datos modificados
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${updatedContactData.id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(updatedContactData)
+					});
+					console.log("Contacto actualizado:", updatedContactData);
+
 				} catch (error) {
-				  console.error("Error actualizando contacto:", error);
+					console.error("Error actualizando contacto:", error);
 				}
-			  },
-			  deleteContact: async (id) => {
+			},
+			deleteContact: async (id) => {
 				try {
-				  // Lógica para eliminar el contacto con el ID especificado
-				  const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${id}`, {
-					method: "DELETE"
-				  });
-				  console.log("Contacto eliminado:", id);
-				  window.location.reload();
+					// Lógica para eliminar el contacto con el ID especificado
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${id}`, {
+						method: "DELETE"
+					});
+					console.log("Contacto eliminado:", id);
+					window.location.reload();
 				} catch (error) {
-				  console.error("Error eliminando contacto:", error);
+					console.error("Error eliminando contacto:", error);
 				}
-			  },
-			  addContact: async (newContactData, history) => {
+			},
+			addContact: async (newContactData) => {
+				console.log('Añadir contacto:', newContactData);
 				try {
 					const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts`, {
 						method: 'POST',
@@ -68,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						contacts: [...prevStore.contacts, data]
 					}));
 					console.log('Contacto añadido:', data);
-					history(`/`);
+
 				} catch (error) {
 					console.error('Error añadiendo contacto:', error);
 				}

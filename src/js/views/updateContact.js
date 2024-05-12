@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
@@ -8,7 +8,7 @@ const UpdateContact = () => {
   const { store, actions } = useContext(Context);
   const [contact, setContact] = useState({});
   const [loading, setLoading] = useState(true); // Nuevo estado para indicar si se está cargando el contacto
-  
+
 
   useEffect(() => {
     // Obtener los detalles del contacto con el ID especificado
@@ -78,10 +78,11 @@ const UpdateContact = () => {
             onChange={handleChange}
           />
         </div>
-        {/* Agrega otros campos del formulario para otros datos del contacto */}
-        <button type="button" className="btn btn-primary" onClick={handleUpdate}>
-          Actualizar
-        </button>
+        <Link to="/">
+          <button type="button" className="btn btn-primary" onClick={handleUpdate}>
+            Actualizar
+          </button>
+        </Link>
       </form>
     </div>
   );

@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 const AddContact = () => {
   const { actions } = useContext(Context);
+  const history = useNavigate();
   const [contact, setContact] = useState({
     name: "",
     phone: "",
@@ -15,8 +17,10 @@ const AddContact = () => {
   };
 
   const handleSubmit = e => {
+    console.log("handleSubmit");
     e.preventDefault();
     actions.addContact(contact);
+    history ("/");
   };
 
   return (
@@ -36,7 +40,7 @@ const AddContact = () => {
           />
         </div>
         <div className="form-group">
-        <label htmlFor="name">Teléfono:</label>
+          <label htmlFor="name">Teléfono:</label>
           <input
             type="text"
             className="form-control"
@@ -48,7 +52,7 @@ const AddContact = () => {
           />
         </div>
         <div className="form-group">
-        <label htmlFor="name">E-mail:</label>
+          <label htmlFor="name">E-mail:</label>
           <input
             type="text"
             className="form-control"
@@ -60,7 +64,7 @@ const AddContact = () => {
           />
         </div>
         <div className="form-group">
-        <label htmlFor="name">Dirección:</label>
+          <label htmlFor="name">Dirección:</label>
           <input
             type="text"
             className="form-control"
@@ -71,10 +75,11 @@ const AddContact = () => {
             required
           />
         </div>
-        {/* Repite este patrón para los otros campos del formulario (teléfono, correo electrónico, dirección) */}
+
         <button type="submit" className="btn btn-primary">
           Añadir Contacto
         </button>
+
       </form>
     </div>
   );
