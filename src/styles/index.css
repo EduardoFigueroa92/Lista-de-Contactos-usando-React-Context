@@ -28,12 +28,12 @@
 .card-body{
     background-color: #fafbfd;
     height: 249px;
-    width: 399px;
+    width: 600px;
 }
 
 .card{
     height: 350px;
-    width: 400px;   
+    width: 600px;   
     box-shadow: 0 0 10px 2px; 
 }
 
