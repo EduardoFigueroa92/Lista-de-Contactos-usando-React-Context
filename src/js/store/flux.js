@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: []
+			contacts: [],
+			avatares: []
 		},
 		actions: {
 			loadContacts: async () => {
@@ -14,6 +15,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(contactsArray);
 					if (Array.isArray(contactsArray)) {
 						setStore({ contacts: contactsArray });
+						const imgArray = [];
+						for(let i= 0; i<contactsArray.length; i++){
+							console.log(contactsArray[i].name)
+							imgArray[i] = "https://api.multiavatar.com/"+contactsArray[i].name
+						}
+						console.log(imgArray);
+						setStore({ avatares: imgArray });
 					} else {
 						console.error('Data retrieved from API is not an array:', data);
 					}
@@ -22,10 +30,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			updateContact: async (updatedContactData) => {
+			updateContact:  (updatedContactData) => {
 				try {
 					// Lógica para actualizar el contacto con los datos modificados
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${updatedContactData.id}`, {
+					const response =  fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts/${updatedContactData.id}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json"
@@ -50,10 +58,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Error eliminando contacto:", error);
 				}
 			},
-			addContact: async (newContactData) => {
+			addContact: (newContactData) => {
 				console.log('Añadir contacto:', newContactData);
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts`, {
+					const response = fetch(`https://playground.4geeks.com/contact/agendas/edu/contacts`, {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json'
@@ -63,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (!response.ok) {
 						throw new Error('Error al agregar contacto');
 					}
-					const data = await response.json();
+					const data = response.json();
 					setStore(prevStore => ({
 						...prevStore,
 						contacts: [...prevStore.contacts, data]

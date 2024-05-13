@@ -12,7 +12,7 @@ const Contact = () => {
 
   return (
     <div className="text-center">
-      <h1>Agenda de contactos</h1>
+      <h1 className="inicio">AGENDA DE CONTACTOS</h1>
       {contacts.map(contact => (
         <ContactCard key={contact.id} contact={contact} />
       ))}

@@ -32,17 +32,16 @@
 }
 
 .card{
-    height: 250px;
-    width: 400px;
-
-    
+    height: 350px;
+    width: 400px;   
+    box-shadow: 0 0 10px 2px; 
 }
 
 .btn1{
     background-color: #333c87;
     color: white;
     margin-top: 20px;
-    border-radius: 5px;    
+    border-radius: 5px; 
 }
 
 .contenedorformulario{
@@ -59,5 +58,12 @@
 
 .form-control{
     background-color: #fafbfd;
+    height: 40px;
+    width: 414px;
 }
+
+.inicio{
+    margin-bottom: 20px;
+}
+
 

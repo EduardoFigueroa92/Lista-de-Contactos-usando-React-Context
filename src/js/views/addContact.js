@@ -26,7 +26,7 @@ const AddContact = () => {
   return (
     <div className="container contenedorformulario">
       
-      <form onSubmit={handleSubmit}>
+      <form className="400px" onSubmit={handleSubmit}>
       <h1>Añadir Nuevo Contacto</h1>
         <div className="form-group">
           <label htmlFor="name">Nombre:</label>

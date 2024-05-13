@@ -20,6 +20,7 @@ const ContactCard = ({ contact }) => {
     <div className="card mb-3">
       <div className="card-body">
         <h5 className="card-title">{contact.name}</h5>
+        <object data={store.avatares[store.contacts.findIndex(x => x.name == contact.name)]} width="120" height="120"></object>
         <p className="card-text">Teléfono: {contact.phone}</p>
         <p className="card-text">Correo electrónico: {contact.email}</p>
         <p className="card-text">Dirección: {contact.address}</p>

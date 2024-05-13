@@ -31,9 +31,10 @@ const UpdateContact = () => {
   }
 
   return (
-    <div>
-      <h1>Actualizar contacto</h1>
+    <div className="container contenedorformulario">
+
       <form>
+        <h1>Actualizar contacto</h1>
         <div className="form-group">
           <label htmlFor="name">Nombre:</label>
           <input
@@ -79,7 +80,7 @@ const UpdateContact = () => {
           />
         </div>
         <Link to="/">
-          <button type="button" className="btn btn-primary" onClick={handleUpdate}>
+          <button type="button" className="btn1" onClick={handleUpdate}>
             Actualizar
           </button>
         </Link>
